@@ -26,12 +26,12 @@ Route::get('/plan-my-safaris','HomeController@plan_my_safaris');
 Route::get('/car-hire','HomeController@car');
 Route::get('/towns/{town}','HomeController@town');
 Route::get('/car-hire/{executive}','HomeController@car_executive');
-Route::get('/car/{name}','HomeController@carDescription'); 
+Route::get('/car/{name}','HomeController@carDescription');
 Route::post('/booktour','HomeController@book_now');
 Route::get('/credits','HomeController@credits');
 
 
-Route::get('/itineraries/{slung}','HomeController@itineraries'); 
+Route::get('/itineraries/{slung}','HomeController@itineraries');
 
 Route::get('/car-category/{name}','HomeController@car_category');
 
@@ -102,7 +102,7 @@ Route::post('/search_transfer_filter','HomeController@search_transfer_filter');
 Route::post('/review','HomeController@review');
 Route::post('/signUp','HomeController@signUp');
 Route::post('/signIn','HomeController@signIn');
-Route::post('/saveData','HomeController@saveData'); 
+Route::post('/saveData','HomeController@saveData');
 
 
 
@@ -141,7 +141,7 @@ Auth::routes();
 
 Route::group(['prefix'=>'admin'], function(){
 
-  
+
 //Login route
 
 Route::get('/login','Auth\AdminLoginController@showLoginForm')->name('admin.login');
@@ -176,7 +176,7 @@ Route::get('/addPrivacy', 'AdminsController@addPrivacy');
 Route::get('/editPrivacy/{id}', 'AdminsController@editPrivacy');
 Route::post('/add_privacy', 'AdminsController@add_privacy');
 Route::get('/delete_privacy/{id}','AdminsController@delete_privacy');
-Route::post('/edit_privacy/{id}', 'AdminsController@edit_privacy'); 
+Route::post('/edit_privacy/{id}', 'AdminsController@edit_privacy');
 //Terms
 Route::get('/terms','AdminsController@terms');
 Route::get('/addTerms', 'AdminsController@addTerms');
@@ -372,7 +372,7 @@ Route::post('/add_Itinery', 'AdminsController@add_Itinery');
 
 //Events Controls
 Route::get('/events','AdminsController@events');
-Route::get('/editEvent/{id}','AdminsController@editEvent'); 
+Route::get('/editEvent/{id}','AdminsController@editEvent');
 Route::get('/delete_Event/{id}','AdminsController@delete_Event');
 Route::post('/edit_Event/{id}', 'AdminsController@edit_Event');
 Route::get('/addEvent', 'AdminsController@addEvent');
@@ -587,7 +587,7 @@ Route::get('/action/{id}', 'AdminsController@action');
 Route::get('/addQuestion/{quiz_id}', 'AdminsController@addQuestion');
 Route::post('/add_Questions', 'AdminsController@add_Questions');
 
-// Sessions Monitoring 
+// Sessions Monitoring
 Route::get('/checkSessions', 'AdminsController@checkSessions');
 
 // Delete image

@@ -1,0 +1,1 @@
+[01-Jul-2021 06:47:01 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Controller' not found in /home/africaretreat/public_html/app/Http/Controllers/ClientController.php on line 30

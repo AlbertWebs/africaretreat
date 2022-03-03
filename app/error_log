@@ -1,0 +1,1 @@
+[01-Jul-2021 06:46:43 UTC] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/africaretreat/public_html/app/Event.php on line 7

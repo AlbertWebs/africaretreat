@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Http\Controllers; 
- 
+namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
@@ -82,7 +82,7 @@ use App\orders;
 
 use App\TraceServices;
 
-use Vinkla\Instagram\Instagram; 
+use Vinkla\Instagram\Instagram;
 
 
 use App\Teacher;
@@ -96,19 +96,19 @@ use Akaunting\Money\Money;
 
 class HomeController extends Controller
 {
-   
+
     public function commingsoon(){
         $page_title = 'We will be Back Soon';
-        return view('front.commingsoon',compact('page_title')); 
+        return view('front.commingsoon',compact('page_title'));
     }
 
     public function broken(){
         $page_title = 'The page your are looking for cannot be found';
-        return view('front.404',compact('page_title')); 
+        return view('front.404',compact('page_title'));
     }
- 
+
     public function index()
-    { 
+    {
         // Destroy Session
         Session::forget('city');
         Session::forget('model');
@@ -116,13 +116,12 @@ class HomeController extends Controller
         SEOMeta::setTitle('African Retreat Tours and Travels - Best Tours & Safaris in Kenya');
         SEOMeta::setDescription('African Retreat Tours and Travels is all about Mission Trips, Cultural Trips In Kenya,Special Interest Trips. Whatever your tastes ,African Retreat Tours and Travels will find the perfect holiday package for you.');
         SEOMeta::setCanonical('http://africatretreat.com/');
-        $Course = DB::table('product')->paginate(9);
         $page_title = 'African Retreat Tours and Travels';
-        return view('front.index',compact('Course','page_title'));
+        return view('front.index',compact('page_title'));
     }
 
     public function explore_kenya()
-    { 
+    {
         // Destroy Session
         Session::forget('city');
         Session::forget('model');
@@ -137,7 +136,7 @@ class HomeController extends Controller
 
 
     public function explore_country($slung)
-    { 
+    {
         // Destroy Session
         Session::forget('city');
         Session::forget('model');
@@ -150,10 +149,10 @@ class HomeController extends Controller
         return view('front.countries',compact('Country','page_title'));
     }
 
-    
+
 
     public function explore_tanzania()
-    { 
+    {
         // Destroy Session
         Session::forget('city');
         Session::forget('model');
@@ -167,7 +166,7 @@ class HomeController extends Controller
     }
 
     public function experiences()
-    { 
+    {
         // Destroy Session
         Session::forget('city');
         Session::forget('model');
@@ -183,7 +182,7 @@ class HomeController extends Controller
 
 
     public function plan_my_safaris()
-    { 
+    {
         // Destroy Session
         Session::forget('city');
         Session::forget('model');
@@ -197,7 +196,7 @@ class HomeController extends Controller
     }
 
     public function credits()
-    { 
+    {
         // Destroy Session
         Session::forget('city');
         Session::forget('model');
@@ -209,11 +208,11 @@ class HomeController extends Controller
         $page_title = 'African Retreat Tours and Travels';
         return view('front.credits',compact('Course','page_title'));
     }
-    
-    
+
+
 
     public function car()
-    { 
+    {
         SEOMeta::setTitle('Car Hire | African Retreat Tours and Travels');
         SEOMeta::setDescription('Kenya Safaris,Tanzania Safaris,Uganda Safaris,Zanzibar safaris,Accomodation,Car Hire Services,Transfers, Whatever your tastes ,African Retreat Tours and Travels will find the perfect holiday package for you.');
         SEOMeta::setCanonical('http://africatretreat.com/car-hire');
@@ -227,7 +226,7 @@ class HomeController extends Controller
     }
 
     public function car_executive()
-    { 
+    {
         SEOMeta::setTitle('Executive Car Hire | African Retreat Tours and Travels');
         SEOMeta::setDescription('Kenya Safaris,Tanzania Safaris,Uganda Safaris,Zanzibar safaris,Accomodation,Car Hire Services,Transfers, Whatever your tastes ,African Retreat Tours and Travels will find the perfect holiday package for you.');
         SEOMeta::setCanonical('http://africatretreat.com/car-hire');
@@ -240,7 +239,7 @@ class HomeController extends Controller
         return view('front.car',compact('Car','page_title'));
     }
 
-    
+
     public function transfers()
     {
         // Destroy Session
@@ -254,10 +253,10 @@ class HomeController extends Controller
         $Transfers = DB::table('transfers')->paginate(5);
         return view('front.transfers',compact('page_title','Transfers'));
     }
-    
+
 
     public function car_category($id)
-    { 
+    {
         // Destroy Session
         Session::forget('city');
         Session::forget('model');
@@ -267,7 +266,7 @@ class HomeController extends Controller
         SEOMeta::setTitle(''.$id.' | African Retreat Tours and Travels');
         SEOMeta::setDescription('Kenya Safaris,Tanzania Safaris,Uganda Safaris,Zanzibar safaris,Accomodation,Car Hire Services,Transfers, Whatever your tastes ,African Retreat Tours and Travels will find the perfect holiday package for you.');
         SEOMeta::setCanonical('http://africatretreat.com/car-category/'.$value->name.'');
-        
+
             $Car = DB::table('cars')->where('category',$value->id)->paginate(20);
             $page_title = 'Car';
             return view('front.car',compact('Car','page_title'));
@@ -276,7 +275,7 @@ class HomeController extends Controller
     }
 
     public function carDescription($id)
-    { 
+    {
         // Destroy Session
         Session::forget('city');
         Session::forget('model');
@@ -288,9 +287,9 @@ class HomeController extends Controller
         $page_title = 'Car Hire - Transfers';
         return view('front.car-details',compact('Car','page_title'));
     }
-    
 
-    public function destinations($slung) 
+
+    public function destinations($slung)
     {
         $Country = DB::table('countries')->where('slung',$slung)->get();
         foreach($Country as $country){
@@ -309,12 +308,12 @@ class HomeController extends Controller
 
     }
 
-    public function destinations_extra($slung) 
+    public function destinations_extra($slung)
     {
         $Extra = Extra::where('slung',$slung)->get();
         foreach ($Extra as $key => $Extra) {
             $Destinations = DB::table('destinations')->where('id',$Extra->product_id)->get();
-        
+
             // Destroy Session
             Session::forget('city');
             Session::forget('model');
@@ -323,15 +322,15 @@ class HomeController extends Controller
             SEOMeta::setDescription('Kenya Safaris,Tanzania Safaris,Uganda Safaris,Zanzibar safaris,Accomodation,Car Hire Services,Transfers, Whatever your tastes ,African Retreat Tours and Travels will find the perfect holiday package for you.');
             SEOMeta::setCanonical('http://africatretreat.com/tour-package');
             $page_title = 'Holidays and Safaris';
-            
+
             return view('front.destinations_extra',compact('slung','page_title','Destinations'));
-        
+
         }
     }
 
-    
 
-    public function destinations_landing() 
+
+    public function destinations_landing()
     {
         // Destroy Session
         Session::forget('city');
@@ -345,7 +344,7 @@ class HomeController extends Controller
         return view('front.destinations-landing',compact('page_title','Destinations'));
     }
 
-    
+
 
     public function town($town)
     {
@@ -361,13 +360,13 @@ class HomeController extends Controller
         return view('front.destinations',compact('page_title','Destinations'));
     }
 
-    
 
- 
+
+
     public function destination_cat($title)
     {
-       
-   
+
+
         $Category = DB::table('category')->where('slung',$title)->get();
         foreach ($Category as $key => $value) {
             # code...
@@ -382,10 +381,10 @@ class HomeController extends Controller
             $Destinations = DB::table('experiences')->where('cat',$value->id)->where('status','1')->paginate(20);
             return view('front.destinations',compact('page_title','Destinations'));
             }
-        
+
     }
 
-    
+
 
     public function destination($name)
     {
@@ -416,7 +415,7 @@ class HomeController extends Controller
             $Destinations = DB::table('samples')->where('type',$value->title)->get();
             return view('front.adventure',compact('page_title','Destinations'));
         }
-        
+
     }
 
 
@@ -436,10 +435,10 @@ class HomeController extends Controller
             $Destinations = DB::table('experiences')->where('cat',$value->id)->where('status','1')->paginate('5');
             return view('front.destinations',compact('page_title','Destinations'));
         }
-       
+
     }
 
-    
+
     public function beach_holidays()
     {
         // Destroy Session
@@ -452,10 +451,10 @@ class HomeController extends Controller
             $page_title = 'Car';
             $Destinations = DB::table('experiences')->where('beach_holidays','1')->where('status','1')->paginate('5');
             return view('front.destinations',compact('page_title','Destinations'));
-        
-       
+
+
     }
-    
+
 
       public function hotels()
     {
@@ -484,8 +483,8 @@ class HomeController extends Controller
         $Hotels = DB::table('hotels')->where('status','1')->where('name',$name)->get();
         return view('front.hotel',compact('page_title','Hotels'));
     }
-       
-   
+
+
 
     public function contact()
     {
@@ -502,12 +501,12 @@ class HomeController extends Controller
     }
     public function book()
     {
-        
+
         SEOMeta::setTitle('Booking | African Retreat Tours and Travels');
         SEOMeta::setDescription('Kenya Safaris,Tanzania Safaris,Uganda Safaris,Zanzibar safaris,Accomodation,Car Hire Services,Transfers, Whatever your tastes ,African Retreat Tours and Travels will find the perfect holiday package for you.');
         SEOMeta::setCanonical('http://africatretreat.com/');
         $page_title = 'Book';
-        
+
         return view('front.book',compact('page_title'));
     }
 
@@ -526,26 +525,26 @@ class HomeController extends Controller
 
         if($cat == 'tour'){
             $Destination = DB::table('experiences')->where('title',$id)->get();
-      
+
             return view('front.books-tour',compact('page_title','Destination'));
         }
 
         if($cat == 'rooms'){
             $Rooms = DB::table('rooms')->where('id',$id)->get();
-      
+
             return view('front.books-rooms',compact('page_title','Rooms'));
         }
 
         if($cat == 'transfers'){
             $Transfers = DB::table('transfers')->where('id',$id)->get();
-      
+
             return view('front.books-transfers',compact('page_title','Transfers'));
         }
-        
-        
+
+
     }
 
-    
+
 
     public function about()
     {
@@ -557,16 +556,16 @@ class HomeController extends Controller
         SEOMeta::setDescription('Kenya Safaris,Tanzania Safaris,Uganda Safaris,Zanzibar safaris,Accomodation,Car Hire Services,Transfers, Whatever your tastes ,African Retreat Tours and Travels will find the perfect holiday package for you.');
         SEOMeta::setCanonical('http://africatretreat.com/about-us');
         $Admin = Admin::all();
-        $About = DB::table('about')->get(); 
+        $About = DB::table('about')->get();
         $SiteSettings = DB::table('sitesettings')->get();
         $Services = Services::all();
         $page_title = 'About Us';
         return view('front.about',compact('page_title','Services','SiteSettings','About','Admin'));
     }
 
- 
 
-    
+
+
 
     public function terms()
     {
@@ -588,7 +587,7 @@ class HomeController extends Controller
         return view('front.trading-terms',compact('page_title','Term'));
     }
 
-    
+
 
     public function privacy()
     {
@@ -619,7 +618,7 @@ class HomeController extends Controller
         $page_title = 'Travel Infomation';
         return view('front.guide',compact('page_title','Copyright'));
     }
-    
+
     public function subscribe(Request $request){
         $FindMail = DB::table('subscribers')->where('email',$request->email)->get();
         $Countmails = count($FindMail);
@@ -632,9 +631,9 @@ class HomeController extends Controller
         }else{
             return "You are already in our subscribers list thank you for staying with us";
         }
-        
-    
-        
+
+
+
     }
     public function request_quote(){
         $page_title = 'Request Quote';
@@ -649,16 +648,16 @@ class HomeController extends Controller
 
     public function register($id){
          // Check Auth
-         
+
             $Course = Curriculum::find($id);
             $All = Curriculum::all();
             $page_title = 'Register Course';
             $CartItems = Cart::content();
             return view('front.reg',compact('page_title','Course','All','id','CartItems'));
-         
-       
+
+
     }
-  
+
 
     public function checkEmail(Request $request)
     {
@@ -674,7 +673,7 @@ class HomeController extends Controller
 
     public function signIn(Request $request){
         $email = $request->email;
-        $password = $request->password; 
+        $password = $request->password;
         $userdata = array(
             'email'     => $email,
             'password'  => $password
@@ -685,13 +684,13 @@ class HomeController extends Controller
             $user = User::where('email','=',$email)->first();
             Auth::loginUsingId($user->id, TRUE);
             return "Success";
-            
-    
-        } else {        
-    
+
+
+        } else {
+
             Session::flash('message_error', "Wrong Username Or Password");
             return "Wrong Username Or Password";
-    
+
         }
 
     }
@@ -700,10 +699,10 @@ class HomeController extends Controller
         $id = Auth::user()->id;
         $updateDetails = array(
             'name'=>$request->name,
-            
+
             'mobile'=>$request->mobile,
             'location'=>$request->location,
-        
+
         );
         DB::table('users')->where('id',$id)->update($updateDetails);
         Session::flash('message', "Changes have been saved");
@@ -722,7 +721,7 @@ class HomeController extends Controller
             $User->password = Hash::make($password_inSecured);
             $User->save();
             //Login the user
-            
+
             $user = User::where('email','=',$request->email)->first();
             Auth::loginUsingId($user->id, TRUE);
             return "Success";
@@ -730,7 +729,7 @@ class HomeController extends Controller
             Session::flash('message', "Passwords Did Not Match");
             return "Passwords Did Not Match!!";
          }
-        //Login 
+        //Login
 
     }
 
@@ -762,8 +761,8 @@ class HomeController extends Controller
             $Destinations = DB::table('experiences')->where('destination','like', '%'.$destination.'%')->where('destination','like', '%'.$destination.'%')->paginate(18);
             $page_title = $destination;
             return view('front.destinations',compact('page_title','Destinations'));
-        
-        
+
+
     }
 
 
@@ -787,7 +786,7 @@ class HomeController extends Controller
         Session::put('check_in', $check_in);
 
         $Car = DB::table('cars')->where('model','like', '%'.$model.'%')->paginate(18);
-        
+
         $page_title = 'Car';
         return view('front.car',compact('Car','page_title'));
     }
@@ -812,7 +811,7 @@ class HomeController extends Controller
                                  ->where('fuel','like', '%'.$fuel.'%')
                                  ->where('price', '<',  $price)
                                  ->paginate(18);
-         
+
                                  return view('front.car',compact('Car','page_title'));
 
     }
@@ -829,7 +828,7 @@ class HomeController extends Controller
           $from = $request->from;
 
         //  die();
-       
+
          $page_title = 'Car';
          $Transfers = DB::table('transfers')
                                  ->where('to','like', '%'.$to.'%')
@@ -839,12 +838,12 @@ class HomeController extends Controller
                                 //  ->where('stop','like', '%'.$stop.'%')
                                 //  ->where('dep','like', '%'.$dep.'%')
                                  ->paginate(18);
-         
+
                                  return view('front.transfers',compact('Transfers','page_title'));
 
     }
 
-    
+
 
     public function search_experience_filter(Request $request){
         SEOMeta::setTitle('Search Holidays and Safaris | African Retreat Tours and Travels');
@@ -860,10 +859,10 @@ class HomeController extends Controller
          $fuel = $request->fuel;
          $page_title = 'Car';
          $Destinations = DB::table('experiences')
-     
+
                 ->where('location','like', '%'.$location.'%')
                 ->where('cat','like', '%'.$request->category.'%')
-         
+
                 ->paginate(18);
 
                 return view('front.destinations',compact('Destinations','page_title'));
@@ -889,39 +888,39 @@ class HomeController extends Controller
         Session::put('check_out', $check_out);
         Session::put('check_in', $check_in);
          $Hotels = DB::table('hotels')
-                
+
                 ->where('location','like', '%'.$location.'%')
-               
+
                 ->paginate(18);
 
                 return view('front.hotels',compact('Hotels','page_title'));
-                
+
 
     }
 
-    
 
-    
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
+
+
     public function submitMessage(Request $request){
         $email = $request->email_contact;
         $name = $request->name_contact;
         $message = $request->message_contact;
         $subject = $request->email_contact;
-        
+
         $Message = new Message;
         $Message->name = $name;
         $Message->email = $email;
         $Message->subject = $subject;
-        $Message->content = $message; 
+        $Message->content = $message;
 
         $Message->save();
         $Notifications = new Notifications;
@@ -955,12 +954,12 @@ class HomeController extends Controller
             Number of people: Adult: '.$request->adult.' Under 12: '.$request->under_12.' Children: '.$request->children.'<br>
             Anything in Particular: '.$message.'<br>
         ';
-        
+
         $Message = new Message;
         $Message->name = $name;
         $Message->email = $email;
         $Message->subject = $subject;
-        $Message->content = $messsages; 
+        $Message->content = $messsages;
 
         $Message->save();
         $Notifications = new Notifications;
@@ -1008,19 +1007,19 @@ class HomeController extends Controller
             Dates: '.$request->dates.'<br>
             Number of People: '.$request->qtyInput.'<br>
         ';
-        
+
         $Message = new Message;
         $Message->name = $name;
         $Message->email = $email;
         $Message->subject = $subject;
-        $Message->content = $message; 
+        $Message->content = $message;
 
         $Message->save();
         $Notifications = new Notifications;
         $Notifications->type = 'Message';
         $Notifications->content = 'You have a new Message';
         $Notifications->save();
-        
+
         ReplyMessage::mailrequest($name,$email,$subject,$message);
         $messageback = "
                 <b>Booking Received</b>.<br>
@@ -1031,7 +1030,7 @@ class HomeController extends Controller
         return Redirect::back();
     }
 
-    
+
 
     public function review(Request $request){
         $email = $request->email;
@@ -1044,18 +1043,18 @@ class HomeController extends Controller
         $cat = $request->cat;
         $location = $request->location;
 
-        
+
 
         $Message = new Review;
         $Message->name = $name;
         $Message->email = $email;
         $Message->location = $location;
-        $Message->title = $title; 
+        $Message->title = $title;
         $Message->cat = $cat;
-        $Message->rating = $rating; 
+        $Message->rating = $rating;
         $Message->review = $review;
         $Message->product_id = $product_id;
-       
+
         $Message->save();
 
         $Notifications = new Notifications;
@@ -1063,9 +1062,9 @@ class HomeController extends Controller
         $Notifications->content = 'You have a new Review';
         $Notifications->save();
         Session::flash('message', "Your Message Has Been Sent");
-        
+
     }
-    
+
 
     public function book_now(Request $request){
         $cat = $request->cat;
@@ -1086,7 +1085,7 @@ class HomeController extends Controller
             $CarModel = $Car->model;
             $CarPrice = $Car->price;
 
-         
+
 
             $Booking = new Booking;
             $Booking->name = $name;
@@ -1114,13 +1113,13 @@ class HomeController extends Controller
             $mobile = $request->mobile;
             $message = $request->message;
             $USerLocation = 'Not Known';
-                 
+
 
             $ExperienceName = $Experience->title;
             $ExperienceLocation = $Experience->location;
             $ExperiencePrice = $Experience->price;
 
-            
+
             $Booking = new Booking;
             $Booking->name = $name;
             $Booking->email = $email;
@@ -1137,7 +1136,7 @@ class HomeController extends Controller
             // mail merchant
             ReplyMessage::mailBookingExperience($name,$email,$mobile,$USerLocation,$ExperienceLocation,$ExperienceName,$ExperiencePrice);
             return Redirect::back();
-            
+
         }else if($cat == 'transfers'){
             // Get Product info
             $Transfer = Transfer::find($id);
@@ -1145,13 +1144,13 @@ class HomeController extends Controller
             $User = User::find(Auth::user()->id);
             // Get Session Data
             if(Session::has('check_in')){
-                $check_in = session()->get('check_in'); 
+                $check_in = session()->get('check_in');
             }else{
                 $check_in = 'Unspecified';
             }
 
-        
-                            
+
+
 
             $TransferFrom = $Transfer->from;
             $TransferTo = $Transfer->to;
@@ -1161,7 +1160,7 @@ class HomeController extends Controller
             $UserEmail = $User->email;
             $UserMobile = $User->mobile;
             $USerLocation = $User->location;
-            
+
             $Booking = new Booking;
             $Booking->name = $UserName;
             $Booking->email = $UserEmail;
@@ -1178,7 +1177,7 @@ class HomeController extends Controller
             // mail merchant
             ReplyMessage::mailBookingTransfers($UserName,$UserEmail,$UserMobile,$USerLocation,$TransferFrom,$TransferTo,$TransferPrice);
             return Redirect::back();
-            
+
         }else if($cat == 'hotel'){
             $Hotel = Hotel::find($request->hotel_id);
             // Get User Info
@@ -1190,13 +1189,13 @@ class HomeController extends Controller
             $check_out = $request->check_out;
             $USerLocation = 'Not Known';
             // Get Session Data
-         
+
             $HotelName = $Hotel->name;
             $RoomName = $request->message;
             $HotelLocation = $Hotel->location;
-           
 
-            
+
+
             $Booking = new Booking;
             $Booking->name = $name;
             $Booking->email = $email;
@@ -1213,12 +1212,12 @@ class HomeController extends Controller
             // mail merchant
             ReplyMessage::mailBookingHotelRoom($name,$email,$mobile,$USerLocation,$HotelLocation,$HotelName,$RoomName);
             return Redirect::back();
-            
+
         }
-        
+
     }
 
-    
+
     public function sample_safaris($name)
     {
         // Destroy Session
@@ -1250,6 +1249,6 @@ class HomeController extends Controller
         return view('front.itineraries',compact('page_title','Itineraries'));
     }
 
-    
-   
+
+
 }
