@@ -73,11 +73,11 @@
                <div class="container-fluid">
                   <!-- logo -->
                   <div class="logo">
-                     <a href="index-2.html">
-                     <img class="normal" src="{{asset('theme/img/logos/logo.svg')}}" alt="African Retreat" />
+                     <a href="{{url('/')}}">
+                     <img class="normal" src="{{url('/')}}/uploads/logo/{{$Settings->logo}}" alt="African Retreat" />
                      <img
                         class="gray-logo"
-                        src="{{asset('theme/img/logos/logo-gray.svg')}}"
+                        src="{{url('/')}}/uploads/logo/{{$Settings->logoo}}"
                         alt="African Retreat"
                         />
                      </a>
@@ -120,9 +120,13 @@
                                 </div>
                             </li>
                             @endforeach
-                            <li class="dropdown">
-                                <a href="{{url('/')}}/about-us" class="dropdown-toggle" data-toggle="dropdown"
-                                   >Home <b class="icon-angle-down"></b
+                            <li>
+                                <a href="{{url('/')}}/about-us">About Us <b class="icon-angle-down"></b
+                                   ></a>
+                             </li>
+
+                             <li>
+                                <a href="{{url('/')}}/contact-us">Contact Us <b class="icon-angle-down"></b
                                    ></a>
                              </li>
 
@@ -133,6 +137,7 @@
                               <span class="text">Login</span>
                               </a>
                            </li>
+
                            <li class="hidden-xs hidden-sm v-divider">
                               <a href="login.html">
                               <span class="icon icon-user"></span>
@@ -199,12 +204,9 @@
                                        name="region"
                                        id="select-region"
                                        >
-                                       <option value="select">Africa</option>
-                                       <option value="select">Arctic</option>
-                                       <option value="select">Asia</option>
-                                       <option value="select">Europe</option>
-                                       <option value="select">Oceanaia</option>
-                                       <option value="select">Polar</option>
+                                       <option value="select">Kenya</option>
+                                       <option value="select">Uganda</option>
+                                       <option value="select">Tanzania</option>
                                     </select>
                                  </div>
                               </div>
@@ -216,7 +218,7 @@
                                        name="activity"
                                        id="select-activity"
                                        >
-                                       <option value="Holiday Type">Holiday Type</option>
+                                       <option value="Holiday Type">Mission Safari Type</option>
                                        <option value="Holiday Type">Beach Holidays</option>
                                        <option value="Holiday Type">Weekend Trips</option>
                                        <option value="Holiday Type">Summer and Sun</option>
@@ -242,6 +244,53 @@
                                     </select>
                                  </div>
                               </div>
+                              {{--  --}}
+                              <div class="holder">
+                                <label>Full Name</label>
+                                <div class="select-holder">
+                                   <div
+
+                                      class="input-group date"
+
+                                      >
+                                      <input class="form-control" type="text" placeholder="Full Name" />
+                                      <span class="input-group-addon"
+                                         ></span>
+                                   </div>
+                                </div>
+                             </div>
+
+                             <div class="holder">
+                                <label>Email</label>
+                                <div class="select-holder">
+                                   <div
+
+                                      class="input-group date"
+
+                                      >
+                                      <input class="form-control" type="text" placeholder="Full Name" />
+                                      <span class="input-group-addon"
+                                         ></span>
+                                   </div>
+                                </div>
+                             </div>
+
+
+                             <div class="holder">
+                                <label>Mobile Number</label>
+                                <div class="select-holder">
+                                   <div
+
+                                      class="input-group date"
+
+                                      >
+                                      <input class="form-control" type="text" placeholder="Full Name" />
+                                      <span class="input-group-addon"
+                                         ></span>
+                                   </div>
+                                </div>
+                             </div>
+                              {{--  --}}
                               <div class="holder">
                                  <button class="btn btn-trip btn-trip-v2" type="submit">
                                  Find Tours
@@ -260,7 +309,7 @@
             <div class="container">
                <!-- newsletter form -->
                <form
-                  action="https://html.waituk.com/African Retreat/php/subscribe.html"
+                  action="#"
                   id="signup"
                   method="post"
                   class="newsletter-form"
@@ -283,79 +332,56 @@
                </form>
                <!-- footer links -->
                <div class="row footer-holder">
-                  <nav class="col-sm-4 col-lg-2 footer-nav active">
-                     <h3>About African Retreat</h3>
+
+
+                  <nav class="col-sm-4 col-lg-4 footer-nav">
+                     <h3>Experiences</h3>
                      <ul class="slide">
-                        <li><a href="#">The Company</a></li>
-                        <li><a href="#">Our Values</a></li>
-                        <li><a href="#">Responsiblity</a></li>
-                        <li><a href="#">Our Mission</a></li>
-                        <li><a href="#">Opportunity</a></li>
-                        <li><a href="#">Safety Concerns</a></li>
+                        <?php $Experiences = DB::table('samples')->orderBy('id','DESC')->limit(6)->get(); ?>
+                        @foreach ($Experiences as $destinations)
+                        <li><a href="{{url('/')}}/itineraries/{{$destinations->slung}}">{{$destinations->title}}</a></li><hr>
+                        @endforeach
                      </ul>
                   </nav>
-                  <nav class="col-sm-4 col-lg-2 footer-nav">
-                     <h3>Destinations</h3>
+
+                  <nav class="col-sm-4 col-lg-4 footer-nav">
+                     <h3>Experiences</h3>
                      <ul class="slide">
-                        <li><a href="#">Nepal</a></li>
-                        <li><a href="#">Thailand</a></li>
-                        <li><a href="#">Vietnam</a></li>
-                        <li><a href="#">Fiji Island</a></li>
-                        <li><a href="#">United States</a></li>
-                        <li><a href="#">Australia</a></li>
+                        <?php $Experiences = DB::table('samples')->orderBy('id','ASC')->limit(6)->get(); ?>
+                        @foreach ($Experiences as $destinations)
+                        <li><a href="{{url('/')}}/itineraries/{{$destinations->slung}}">{{$destinations->title}}</a></li><hr>
+                        @endforeach
                      </ul>
                   </nav>
-                  <nav class="col-sm-4 col-lg-2 footer-nav">
-                     <h3>themes</h3>
-                     <ul class="slide">
-                        <li><a href="#">Hiking and Camping</a></li>
-                        <li><a href="#">Trekking Tours</a></li>
-                        <li><a href="#">Jungle Safaris</a></li>
-                        <li><a href="#">Bungee Jumping</a></li>
-                        <li><a href="#">Wildlife &amp; Polar</a></li>
-                        <li><a href="#">Peak Climbing</a></li>
-                     </ul>
-                  </nav>
-                  <nav class="col-sm-4 col-lg-2 footer-nav">
-                     <h3>reservation</h3>
-                     <ul class="slide">
-                        <li><a href="#">Booking Conditions</a></li>
-                        <li><a href="#">My Bookings</a></li>
-                        <li><a href="#">Refund Policy</a></li>
-                        <li><a href="#">Includes &amp; Excludes</a></li>
-                        <li><a href="#">Your Responsibilities</a></li>
-                        <li><a href="#">Order a Brochure</a></li>
-                     </ul>
-                  </nav>
-                  <nav class="col-sm-4 col-lg-2 footer-nav">
-                     <h3>ask African Retreat</h3>
-                     <ul class="slide">
-                        <li><a href="#">Why African Retreat?</a></li>
-                        <li><a href="#">Ask an Expert</a></li>
-                        <li><a href="#">Safety Updates</a></li>
-                        <li><a href="#">We Help When...</a></li>
-                        <li><a href="#">Personal Matters</a></li>
-                     </ul>
-                  </nav>
-                  <nav class="col-sm-4 col-lg-2 footer-nav last">
+
+
+
+
+
+                  <nav class="col-sm-4 col-lg-4 footer-nav last">
                      <h3>contact African Retreat</h3>
                      <ul class="slide address-block">
-                        <li class="wrap-text">
-                           <span class="icon-tel"></span>
-                           <a href="tel:02072077878">(020) 72077878</a>
-                        </li>
+
                         <li class="wrap-text">
                            <span class="icon-fax"></span>
-                           <a href="tel:02088828282">(020) 88828282</a>
+                           <a href="tel:{{$Settings->mobile}}">{{$Settings->mobile}}</a>
                         </li>
+                        <hr>
                         <li class="wrap-text">
                            <span class="icon-email"></span>
-                           <a href="mailto:info@African Retreat.com">info@African Retreat.com</a>
+                           <a href="mailto:{{$Settings->email}}">{{$Settings->email}}</a>
                         </li>
+                        <hr>
                         <li>
                            <span class="icon-home"></span>
-                           <address>707 London Road Isleworth, Middx TW7 7QD</address>
+                           <address>{{$Settings->address}}</address>
                         </li>
+                        <hr>
+                        <li>
+                           <span class="icon-home"></span>
+                           <address>{{$Settings->location}}</address>
+                        </li>
+                        <hr>
                      </ul>
                   </nav>
                </div>
@@ -385,15 +411,15 @@
                      <strong class="txt">Share At</strong>
                      </a>
                   </li>
-                  <li class="pin">
+                  <li class="instagram">
                      <a href="#">
-                     <span class="icon-pin"></span>
+                     <span class="icon-instagram"></span>
                      <strong class="txt">Pin It</strong>
                      </a>
                   </li>
-                  <li class="dribble">
+                  <li class="youtube">
                      <a href="#">
-                     <span class="icon-dribble"></span>
+                     <span class="icon-youtube"></span>
                      <strong class="txt">Dribbble</strong>
                      </a>
                   </li>
