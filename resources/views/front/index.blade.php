@@ -112,7 +112,7 @@
                color: #ffffff;
                "
                >
-               WE MAKE YOUR MISSION SAFARIS MEMORABLE
+               WE MAKE YOUR MISSION SAFARIS
             </div>
             <div
                class="tp-caption banner-heading-sub tp-resizeme rs-parallaxlevel-10"
@@ -142,7 +142,7 @@
                white-space: nowrap;
                "
                >
-               TERRITORY
+               MEMORABLE
             </div>
             <div
                class="tp-caption rev-btn rs-parallaxlevel-10"
@@ -567,7 +567,7 @@
           <header class="content-heading">
              <h2 class="main-heading">THE ADVENTURE</h2>
              <span class="main-subtitle"
-                >At Africa Retreat Tours and Safaris, We Plan and book unique safaris, Selecting the best destinations and properties to match your preferences, We sample all tastes of safaris ranging from Mission Safaris to Game safaris</span
+                >At Africa Retreat Tours and Travels, We Plan and book unique safaris, Selecting the best destinations and properties to match your preferences, We sample all tastes of safaris ranging from Mission Safaris to Game safaris</span
                 >
              <div class="seperator"></div>
           </header>
@@ -579,13 +579,13 @@
                       <li>
                          <a href="#" class="thumbnail">
                          <img
-                            src="{{asset('theme/img/gallery/img-01.jpg')}}"
-                            height="165"
+                            src="{{asset('theme/images/pexels-quang-nguyen-vinh-2132126.jpg')}}" style="height:160px !important;"
+                            height="160"
                             width="170"
                             alt="image description"
                             />
-                         <span class="hover icon-bird"></span>
-                         <span class="info">aerial</span>
+                         <span class="hover icon-home"></span>
+                         <span class="info">Missions</span>
                          </a>
                       </li>
                       <li>
@@ -621,7 +621,7 @@
                             alt="image description"
                             />
                          <span class="hover icon-asia"></span>
-                         <span class="info">asia</span>
+                         <span class="info">Arid</span>
                          </a>
                       </li>
                       <li>
@@ -633,13 +633,13 @@
                             alt="image description"
                             />
                          <span class="hover icon-arctic"></span>
-                         <span class="info">arctic</span>
+                         <span class="info">Caves</span>
                          </a>
                       </li>
                       <li>
                          <a href="#" class="thumbnail">
                          <img
-                            src="{{asset('theme/img/gallery/img-06.jpg')}}"
+                            src="{{asset('theme/images/pexels-charl-durand-6582105.jpg')}}"
                             height="165"
                             width="170"
                             alt="image description"
@@ -673,17 +673,17 @@
                          </a>
                       </li>
                       <li>
-                         <a href="#" class="thumbnail">
-                         <img
-                            src="{{asset('theme/img/gallery/img-09.jpg')}}"
-                            height="165"
-                            width="170"
-                            alt="image description"
-                            />
-                         <span class="hover icon-diamond"></span>
-                         <span class="info">all</span>
-                         </a>
-                      </li>
+                        <a href="#" class="thumbnail">
+                        <img
+                           src="{{asset('theme/img/gallery/img-01.jpg')}}"
+                           height="165"
+                           width="170"
+                           alt="image description"
+                           />
+                        <span class="hover icon-bird"></span>
+                        <span class="info">aerial</span>
+                        </a>
+                     </li>
                    </ul>
                 </div>
                 <div class="col-md-6 text-block">
