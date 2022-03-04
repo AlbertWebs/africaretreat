@@ -11,12 +11,12 @@
         {!! SEOMeta::generate() !!}
         {{-- SEO --}}
       <!-- favion -->
-      <link
+      {{-- <link
          rel="icon"
          type="image/png"
          sizes="16x16"
          href="{{asset('theme/img/favicon-16x16.png')}}"
-         />
+         /> --}}
       <!-- link to font awesome -->
       <link
          media="all"
