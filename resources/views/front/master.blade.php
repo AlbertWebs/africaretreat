@@ -106,6 +106,11 @@
                                  >Home <b class="icon-angle-down"></b
                                  ></a>
                            </li>
+
+                           <li>
+                            <a href="{{url('/')}}/about-us">Mission Safaris<b class="icon-angle-down"></b
+                               ></a>
+                         </li>
                            <?php $Countries = DB::table('countries')->get(); ?>
                             @foreach ($Countries as $country)
                             <li class="dropdown">

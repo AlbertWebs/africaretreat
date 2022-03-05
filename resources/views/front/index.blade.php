@@ -329,7 +329,7 @@
                 <img
                    alt="image description"
                    src="{{asset('theme/img/banner/image.webp')}}"
-                   data-lazyload="img/banner/img-02.jpg')}}"
+                   data-lazyload="{{asset('theme/img/banner/image.webp')}}"
                    data-bgposition="right center"
                    data-kenburns="on"
                    data-duration="30000"
@@ -677,7 +677,7 @@
                       <li>
                         <a href="#" class="thumbnail">
                         <img
-                           src="{{asset('theme/img/gallery/image.webp')}}"
+                           src="{{asset('theme/img/gallery/img-01.jpg')}}"
                            height="165"
                            width="170"
                            alt="image description"

@@ -10325,7 +10325,8 @@ blockquote.normal {
 }
 
 .logo a {
-	width: 120px;
+	width: 180px;
+    /* border: 2px solid #ffffff; */
 }
 
 .logo img {
@@ -11663,7 +11664,7 @@ h4,
 
 .logo {
 	width: 240px;
-	padding: 38px 15px 38px 0;
+	padding: 38px 15px 38px 15;
 }
 
 .header-v2 .navbar-default .nav-center {
