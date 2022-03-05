@@ -39,7 +39,7 @@
             >
             <!-- main image for revolution slider -->
             <img
-               src="{{asset('theme/img/banner/img-01.jpg')}}"
+               src="{{asset('theme/img/banner/image.webp')}}"
                alt="image description"
                data-bgposition="center center"
                data-kenburns="on"
@@ -140,6 +140,7 @@
                text-indent: 5px;
                font-weight: 900;
                white-space: nowrap;
+               text-shadow: 1px 1px 0px #ffffff;
                "
                >
                MEMORABLE
@@ -183,7 +184,7 @@
                 >
                 <!-- main image for revolution slider -->
                 <img
-                   src="{{asset('theme/img/banner/img-01.jpg')}}"
+                   src="{{asset('theme/img/banner/image.webp')}}"
                    alt="image description"
                    data-bgposition="center center"
                    data-kenburns="on"
@@ -327,7 +328,7 @@
                 <!-- main image for revolution slide -->
                 <img
                    alt="image description"
-                   src="{{asset('theme/img/banner/img-01.jpg')}}"
+                   src="{{asset('theme/img/banner/image.webp')}}"
                    data-lazyload="img/banner/img-02.jpg')}}"
                    data-bgposition="right center"
                    data-kenburns="on"
@@ -458,6 +459,7 @@
                    text-indent: 5px;
                    font-weight: 900;
                    white-space: nowrap;
+                   text-shadow: 1px 1px 0px #ffffff;
                    "
                    >
                    PARTNER
@@ -675,7 +677,7 @@
                       <li>
                         <a href="#" class="thumbnail">
                         <img
-                           src="{{asset('theme/img/gallery/img-01.jpg')}}"
+                           src="{{asset('theme/img/gallery/image.webp')}}"
                            height="165"
                            width="170"
                            alt="image description"
